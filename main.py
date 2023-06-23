@@ -15,6 +15,10 @@ def get_word_from_db():
     result = cursor.fetchone()
     return result[0] if result else ''
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Welcome to the API home page! To acess the api please go to /api/test. And to acess the admin please go to /admin."
+
 @app.route('/api/test', methods=['GET'])
 def get_test():
     word = get_word_from_db()
